@@ -10,10 +10,8 @@ Snake::Snake(Vector2 head, float size)
 
 void Snake::draw()
 {
-    move();
-
     //Draw all the body pieces 
-    for(int ii=0; ii < body.size(); ii++)
+    for(size_t ii=0; ii < body.size(); ii++)
     {
         DrawRectangleV(body[ii], {bodyPieceSize, bodyPieceSize}, RED);
     }
@@ -42,7 +40,7 @@ void Snake::move()
         break;
     }
 
-    for(int ii=0; ii < body.size(); ii++)
+    for(size_t ii=0; ii < body.size(); ii++)
     {
         temp = body[ii];
         body[ii] = nextPos;

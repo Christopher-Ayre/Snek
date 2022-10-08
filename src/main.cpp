@@ -19,7 +19,7 @@ int main(void)
     snek.addLength();
     snek.addLength();
 
-    SetTargetFPS(10);               // Set our game to run at 60 frames-per-second
+    SetTargetFPS(8);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
 
     // Main game loop
@@ -36,8 +36,8 @@ int main(void)
         //----------------------------------------------------------------------------------
         BeginDrawing();
 
+            snek.move();
             snek.draw();
-            
 
             ClearBackground(BLACK);
 
