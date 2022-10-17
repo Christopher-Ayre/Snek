@@ -1,7 +1,6 @@
 #ifndef SNAKE_H
 #define SNAKE_H
 
-#include "IRenderable.h"
 #include "raylib.h"
 #include <vector>
 
