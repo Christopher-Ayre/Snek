@@ -32,12 +32,6 @@ int main(void)
 
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-        //We have to check for current direction because we dont allow the snake to turn back on itself
-        if ((IsKeyDown(KEY_D) || IsKeyReleased(KEY_D)) && snek.getDirection() != Direction::LEFT) snek.setDirection(Direction::RIGHT);
-        if ((IsKeyDown(KEY_A) || IsKeyReleased(KEY_A)) && snek.getDirection() != Direction::RIGHT) snek.setDirection(Direction::LEFT);
-        if ((IsKeyDown(KEY_W) || IsKeyReleased(KEY_W)) && snek.getDirection() != Direction::DOWN) snek.setDirection(Direction::UP);
-        if ((IsKeyDown(KEY_S) || IsKeyReleased(KEY_S)) && snek.getDirection() != Direction::UP) snek.setDirection(Direction::DOWN);
-
         game.tick();
     }
 

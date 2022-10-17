@@ -14,6 +14,11 @@ void GameWorld::tick()
 {
     if(gameState == PLAYING)
     {
+        //We have to check for current direction because we dont allow the snake to turn back on itself
+        if (IsKeyDown(KEY_D) && snake.getDirection() != Direction::LEFT) { snake.setDirection(Direction::RIGHT); }
+        if (IsKeyDown(KEY_A) && snake.getDirection() != Direction::RIGHT) { snake.setDirection(Direction::LEFT); }
+        if (IsKeyDown(KEY_W) && snake.getDirection() != Direction::DOWN) { snake.setDirection(Direction::UP); }
+        if (IsKeyDown(KEY_S) && snake.getDirection() != Direction::UP) { snake.setDirection(Direction::DOWN); }
         snake.move();
     }
 
