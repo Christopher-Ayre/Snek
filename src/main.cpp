@@ -1,6 +1,8 @@
 
 #include "raylib.h"
 #include "Snake.h"
+#include "Apple.h"
+#include "GameWorld.h"
 
 
 int main(void)
@@ -24,6 +26,8 @@ int main(void)
     snek.addLength();
     snek.addLength();
 
+    GameWorld game(snek,20,{screenWidth, screenHeight});
+
     SetTargetFPS(8);               // Set our game to run at 60 frames-per-second
 
     while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -34,16 +38,7 @@ int main(void)
         if ((IsKeyDown(KEY_W) || IsKeyReleased(KEY_W)) && snek.getDirection() != Direction::DOWN) snek.setDirection(Direction::UP);
         if ((IsKeyDown(KEY_S) || IsKeyReleased(KEY_S)) && snek.getDirection() != Direction::UP) snek.setDirection(Direction::DOWN);
 
-        BeginDrawing();
-
-            snek.move();
-            snek.draw();
-
-            ClearBackground(DARKGRAY);
-            DrawText("Move the snake with WASD keys", 10, 10, 20, BLACK);
-
-        EndDrawing();
-        //----------------------------------------------------------------------------------
+        game.tick();
     }
 
     CloseWindow();        // Close window and OpenGL context
