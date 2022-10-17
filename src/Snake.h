@@ -17,6 +17,7 @@ public:
     void draw();
     const Vector2 getHead();
     void setDirection(Direction direction);
+    bool hasLoopedOnSelf();
     Direction getDirection();
     void addLength();
     void move();

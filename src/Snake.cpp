@@ -77,14 +77,32 @@ void Snake::addLength()
     body.push_back({xPos,yPos});
 }
 
-void Snake::setDirection(Direction newDirection)
+bool Snake::hasLoopedOnSelf()
 {
-    direction = newDirection;
+    bool loop = false;
+    Vector2 head = getHead();
+
+    //Start at 1 so we dont check the head position against the head position
+    for (size_t ii = 1; ii < body.size(); ii++)
+    {
+        //If the head is in the same place as a body piece then we have collided 
+        if(head.x == body[ii].x && head.y == body[ii].y)
+        {
+            loop = true;
+        }
+    }
+    
+    return loop;
 }
 
 Direction Snake::getDirection()
 {
     return direction;
+}
+
+void Snake::setDirection(Direction newDirection)
+{
+    direction = newDirection;
 }
 
 const Vector2 Snake::getHead()

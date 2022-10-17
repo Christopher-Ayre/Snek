@@ -40,10 +40,12 @@ void GameWorld::draw()
         break;
 
         case GAMEOVER:
-
+            ClearBackground(BLACK);
+            DrawText("GAME OVER", screenSize.x/5, screenSize.y/5, 60, WHITE);
         break;
 
         case PLAYING:
+            handleCollisions();
             snake.draw();
             apple.draw();
             ClearBackground(DARKGRAY);
@@ -56,5 +58,8 @@ void GameWorld::draw()
 
 void GameWorld::handleCollisions()
 {
-
+    if(snake.hasLoopedOnSelf())
+    {
+        gameState = GAMEOVER;
+    }
 }
