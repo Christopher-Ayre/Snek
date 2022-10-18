@@ -21,6 +21,7 @@ public:
     Direction getDirection();
     void addLength();
     void move();
+    bool positionIsInSnake(Vector2 position);
 private:
     std::vector<Vector2> body;
     float bodyPieceSize;

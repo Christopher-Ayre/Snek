@@ -14,16 +14,18 @@ enum GameState{
 class GameWorld{
     //class Snake;
 public:
-    GameWorld(Snake& snake, int pixelSize, Vector2 screenSize);
+    GameWorld(Snake& snake, int pixelSize, int screenMaxX, int screenMaxY);
     void tick();
 private:
+    void spawnNewApple();
     void handleCollisions();
     void draw();
 
     Snake& snake;
     Apple apple;
     int pixelSize;
-    Vector2 screenSize;
+    int screenMaxX;
+    int screenMaxY;
     GameState gameState;
 };
 #endif

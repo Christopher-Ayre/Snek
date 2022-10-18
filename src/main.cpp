@@ -26,7 +26,7 @@ int main(void)
     snek.addLength();
     snek.addLength();
 
-    GameWorld game(snek,20,{screenWidth, screenHeight});
+    GameWorld game(snek, 20, screenWidth, screenHeight);
 
     SetTargetFPS(8);               // Set our game to run at 60 frames-per-second
 

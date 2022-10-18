@@ -109,3 +109,18 @@ const Vector2 Snake::getHead()
 {
     return body[0];
 }
+
+bool Snake::positionIsInSnake(Vector2 position)
+{
+    bool isInSnake = false;
+
+    for(Vector2 snakePiece : body)
+    {
+        if(position.x == snakePiece.x && position.y == snakePiece.y)
+        {
+            isInSnake = true;
+        }
+    }
+    
+    return isInSnake;
+}
