@@ -81,12 +81,17 @@ void GameWorld::handleCollisions()
 
 void GameWorld::spawnNewApple()
 {
-    int newX = rand() % screenMaxX + 1;
-    int newY = rand() % screenMaxY + 1;
+    int newX{};
+    int newY{};
+    do{
+        newX = rand() % screenMaxX + 1;
+        newY = rand() % screenMaxY + 1;
 
-    //This needs to take into account the pixel size so that the snake lines up with it.
-    newX = (newX/pixelSize) * pixelSize;
-    newY = (newY/pixelSize) * pixelSize;
+        //This needs to take into account the pixel size so that the snake lines up with it.
+        newX = (newX/pixelSize) * pixelSize;
+        newY = (newY/pixelSize) * pixelSize;
+
+    } while(snake.positionIsInSnake({newX,newY}));
 
     std::cout << newX << " : " << newY << std::endl;
     apple = Apple({newX,newY});
