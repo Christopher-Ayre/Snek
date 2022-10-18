@@ -70,8 +70,8 @@ void GameWorld::draw()
 void GameWorld::handleCollisions()
 {
     Vector2 snakeHead = snake.getHead();
-    bool ofScreenX = (snakeHead.x <= 0 || snakeHead.x >= screenMaxX);
-    bool ofScreenY = (snakeHead.y <= 0 || snakeHead.y >= screenMaxY);
+    bool ofScreenX = (snakeHead.x < 0 || snakeHead.x >= screenMaxX);
+    bool ofScreenY = (snakeHead.y < 0 || snakeHead.y >= screenMaxY);
 
     if(snake.hasLoopedOnSelf() || ofScreenX || ofScreenY )
     {
